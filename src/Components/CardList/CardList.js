@@ -3,7 +3,7 @@ import { nanoid } from "nanoid";
 
 import Api from "../Api/ApiService";
 import CardItems from "../CardItems/CardItems";
-import ButtonPage from "../Button/ButtonPage";
+import ButtonPage from "../Button/ButtonPage/ButtonPage";
 import s from "./CardList.module.scss";
 import cont from "../../style/base.module.scss";
 function CardList() {
