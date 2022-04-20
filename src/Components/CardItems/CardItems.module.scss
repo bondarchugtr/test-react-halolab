@@ -21,7 +21,7 @@
         flex-basis: calc((100% - 60px) / 2);
        
     }
-         @media screen and (min-width:$desktop-only){
+         @media screen and (min-width:$desktop-up){
             width: 352px;
             height: 256px;
         flex-basis: calc((100% - 90px) / 3);

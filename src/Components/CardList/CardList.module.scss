@@ -1,5 +1,7 @@
 @import '/src/Style/breakpoints.scss';
-
+.block__card{
+    margin-top: 120px;
+}
 .list{
  
     @media screen and (min-width:$tablet-general){
