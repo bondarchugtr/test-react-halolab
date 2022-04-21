@@ -27,8 +27,8 @@ function Modal({ onClose, modalOpen, children }) {
 
   return createPortal(
     <div
-      //   className={modalOpen ? s.backdrop + " " + s.is__open : s.backdrop}
-      className={s.overlay}
+      className={modalOpen ? s.overlay + " " + s.is__open : s.overlay}
+      //   className={s.overlay}
       onClick={closeBackDrop}
     >
       <div className={modalOpen ? s.modal + " " + s.is__open : s.modal}>

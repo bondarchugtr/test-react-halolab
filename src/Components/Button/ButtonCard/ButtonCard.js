@@ -1,6 +1,7 @@
 import { useState } from "react";
 import s from "./ButtonCard.module.scss";
 import Modal from "../../Modal/Modal";
+import Form from "../../Forma/Forma";
 function ButtonCard() {
   const [modalOpen, setModalOpen] = useState(false);
   console.log(modalOpen);
@@ -10,15 +11,14 @@ function ButtonCard() {
 
   return (
     <>
-      <button
-        type="button"
-        className={s.buttoncard}
-        onClick={toggleModal}
-        test={modalOpen}
-      >
+      <button type="button" className={s.buttoncard} onClick={toggleModal}>
         Buy
       </button>
-      {modalOpen && <Modal />}
+      {modalOpen && (
+        <Modal onClose={toggleModal}>
+          <Form />
+        </Modal>
+      )}
     </>
   );
 }

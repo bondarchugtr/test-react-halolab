@@ -83,6 +83,35 @@
   }
   
   .modal {
+
+    
     transform: scale(0.95);
     transition: transform var(--animation-duration) var(--timing-function);
+  }
+
+  .modal {
+    position: relative;
+    opacity: 1;
+    // pointer-events: none;
+    transition: 0.5s;
+    background-color: #FFFFFF;
+    background: #FFFFFF;
+    border-radius: 24px;
+    z-index: 2000;
+  }
+
+  .modal__content {
+    min-width: 150px;
+    min-height: 150px;
+  }
+  
+  .modal.is__open {
+    opacity: 1;
+    pointer-events: initial;
+    background-color: #FFFFFF;
+  
+    //   // transform: translate(-50%, 0) scale(1);
+    //   @media screen and (min-width: $tablet-general) {
+    //     transform: translate(-50%, -50%) scale(1);
+    //   }
   }

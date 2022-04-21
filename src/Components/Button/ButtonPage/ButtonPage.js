@@ -10,7 +10,7 @@ function ButtonPage() {
     <div className={s.block}>
       <button
         type="button"
-        className={s.buttonpage}
+        className={s.button__page}
         onClick={toggleFilterPrice}
       >
         Buy cheapest

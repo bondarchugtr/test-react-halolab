@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import s from "./InputPhonebook.module.scss";
 import { nanoid } from "nanoid";
-
-const Form = ({ onSubmit }) => {
+import s from "./Forma.module.scss";
+import ButtonOrder from "../Button/ButtonOrder/ButtonOrder";
+const Form = () => {
   const [contact, setContact] = useState({
     name: "",
     number: "",
   });
+  const [contactsArr, setContactsArr] = useState([]);
+  console.log(contactsArr);
   const handleInputChange = (prev) => {
     const { name, value } = prev.target;
     setContact((prev) => ({ ...prev, [name]: value }));
@@ -14,7 +16,7 @@ const Form = ({ onSubmit }) => {
 
   const handleSubmit = (el) => {
     el.preventDefault();
-    onSubmit({ ...contact });
+    setContactsArr({ ...contact });
     reset();
   };
 
@@ -27,11 +29,9 @@ const Form = ({ onSubmit }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={s.Forma}>
-        <label className={s.nameinput} />
-        Name
+      <form onSubmit={handleSubmit} className={s.forma}>
         <input
-          className={s.Forma__input}
+          className={s.forma__input}
           id={nanoid()}
           type="text"
           name="name"
@@ -42,10 +42,9 @@ const Form = ({ onSubmit }) => {
           required
           onChange={handleInputChange}
         />
-        <label className={s.nameinput} />
-        Number
+
         <input
-          className={s.Forma__input}
+          className={s.forma__input}
           id={nanoid()}
           type="text"
           name="number"
@@ -56,9 +55,9 @@ const Form = ({ onSubmit }) => {
           required
           onChange={handleInputChange}
         />
-        <button type="submit" className={s.Button__form}>
-          Add Contact
-        </button>
+        <>
+          <ButtonOrder />
+        </>
       </form>
     </>
   );
