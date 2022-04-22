@@ -19,19 +19,21 @@ function CardList() {
   };
 
   return (
-    <div className={cont.container}>
-      <ul className={s.list}>
-        {cardArr.map((card) => (
-          <CardItems
-            key={nanoid()}
-            name={card.name}
-            category={card.category}
-            price={card.price}
-          />
-        ))}
-      </ul>
-      <ButtonPage onClick={openModal} />
-    </div>
+    <section className={s.section__card}>
+      <div className={cont.container}>
+        <ul className={s.list}>
+          {cardArr.map((card) => (
+            <CardItems
+              key={nanoid()}
+              name={card.name}
+              category={card.category}
+              price={card.price}
+            />
+          ))}
+        </ul>
+        <ButtonPage onClick={openModal} />
+      </div>
+    </section>
   );
 }
 

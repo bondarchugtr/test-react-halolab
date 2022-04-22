@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Api from "../../Api/ApiService";
 import Modal from "../../Modal/Modal.js";
 import s from "../ButtonPage/ButtonPage.module.scss";
-function ButtonPage({ onClick }) {
+function ButtonPage() {
   const [isActive, setIsActive] = useState(false);
   const [cardArrMim, setCardArrMin] = useState([]);
   const [minPrice, setMinPrice] = useState([]);
@@ -10,14 +10,14 @@ function ButtonPage({ onClick }) {
     Api().then((response) => setCardArrMin([...cardArrMim, ...response]));
   }, []);
 
-  const min = () => {
+  const minNumber = () => {
     let min = cardArrMim.sort((a, b) => a.price - b.price);
     setMinPrice(min[0]);
   };
 
   const openModal = () => {
     setIsActive(!isActive);
-    min();
+    minNumber();
   };
 
   return (

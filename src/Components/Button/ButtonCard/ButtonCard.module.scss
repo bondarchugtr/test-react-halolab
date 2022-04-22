@@ -1,24 +1,26 @@
-.buttoncard{
-    padding: 16px;
-    width: 64px;
-    height: 56px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    border-radius: 16px;
-    color: #4BCFA0;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
+@import "../../../style/variables.scss";
+.buttoncard {
+  width: 64px;
+  height: 56px;
+  padding: 16px;
 
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    cursor: pointer;
-   
-    &:hover,
-    &:focus{
-        background: #4BCFA0;
-        color: antiquewhite;
-    }
+  border-radius: 16px;
+  border: $border;
+
+  box-sizing: border-box;
+  color: $color-button-green;
+  //   font-family: "Roboto";
+  //   font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background: $color-button-green;
+    color: $color-button-white;
+  }
 }

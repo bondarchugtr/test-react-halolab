@@ -1,137 +1,148 @@
-@import '../../style/breakpoints.scss';
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding-left: 15px;
-    padding-right: 15px;
-    opacity: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow-y: scroll;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-  
+@import "../../style/breakpoints.scss";
+@import "../../style/variables.scss";
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .modal {
-    position: relative;
-    opacity: 1;
-    transition: 0.5s;
-    background: #FFFFFF;
-    border-radius: 24px;
-    transform: scale(0.95);
-    transition: transform var(--animation-duration) var(--timing-function);
-    z-index: 2000;
-  }
+  top: 0;
+  left: 0;
 
- 
-  .modal__content {
-    min-width: 150px;
-    min-height: 150px;
-  }
+  width: 100vw;
+  height: 100vh;
+  padding-left: 15px;
+  padding-right: 15px;
+  overflow-y: scroll;
 
-  .main__modal{
-    text-align: center;
-    padding: 50px 15px;
-  
-    @media screen and (min-width:$tablet-general){
-        padding: 50px;
-    }
-  }
-  .card__category{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.5;
+  background-color: $overlay-background-color;
+  opacity: 1;
+}
 
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    margin-top: 0;
-    margin-bottom: 8px;
-    color: #000000;
-    opacity: 0.5;
-  }
+.modal {
+  position: relative;
+  z-index: 2000;
 
-  .card__title{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-top: 0;
-    margin-bottom: 16px;
-    color: #000000;
-  
-  }
-  .card__price{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
+  border-radius: 24px;
 
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 60px;
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    margin-top: 0;
-    margin-bottom: 32px;
-    color: #000000;
+  background: $modal-background-color;
+
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+  opacity: 1;
+}
+
+.modal__content {
+  min-width: 150px;
+  min-height: 150px;
+}
+
+.main__modal {
+  padding: 50px 15px;
+
+  text-align: center;
+
+  @media screen and (min-width: $tablet-general) {
+    padding: 50px;
   }
-.price__mark{
-  font-family: 'Roboto';
+}
+.card__category {
+  margin-top: 0;
+  margin-bottom: 8px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: $main-text-color-dark;
+
+  opacity: 0.5;
+}
+
+.card__title {
+  margin-top: 0;
+  margin-bottom: 16px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  color: $main-text-color-dark;
+}
+.card__price {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 0;
+  margin-bottom: 32px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 60px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+
+  color: $main-text-color-dark;
+}
+.price__mark {
+  margin-right: 4px;
+  margin-top: 13px;
+
+  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 30px;
   line-height: 1.16;
   letter-spacing: -0.02em;
-  margin-right: 4px;
-  color: #000000;
+
+  color: $main-text-color-dark;
 }
 
+.modal.is__open {
+  opacity: 1;
+  pointer-events: initial;
+  background-color: $background-color;
+}
 
-  .modal.is__open {
-    opacity: 1;
-    pointer-events: initial;
-    background-color: #FFFFFF;
+.modal__close__button {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 40px;
+  height: 40px;
+  top: -10px;
+  right: -10px;
+
+  border: transparent;
+  border-radius: 50%;
+
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.17;
+
+  background-color: $modal-close-color;
+
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+
+  @media screen and (min-width: $tablet-general) {
+    top: -15px;
+    right: -15px;
   }
+}
 
-  .modal__close__button {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 12px;
-    font-weight: 500;
-    width: 40px;
-    height: 40px;
-    top: -10px;
-    right: -10px;
-    background-color: #F2F2F2;
-    letter-spacing: 0.06em;
-    line-height: 1.17;
-    border: transparent;
-    border-radius: 50%;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-
-    @media screen and (min-width:$tablet-general) {
-      top: -15px;
-      right: -15px;
-    }
-      
-    }
-
-
-  
-
-  .close__icon{
-    width: 20px;
-    height: 20px;
-  }
+.close__icon {
+  width: 20px;
+  height: 20px;
+}

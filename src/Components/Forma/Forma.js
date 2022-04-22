@@ -16,16 +16,14 @@ const Form = () => {
   const [nameFocus, setNameFocus] = useState(false);
   const [numberFocus, setNumberFocus] = useState(false);
 
-  console.log(contactsArr);
-
-  // const cheakNum = (str) => {
-  //   return str
-  //     .split("")
-  //     .map((value) => {
-  //       return !isNaN(value);
-  //     })
-  //     .find((el) => el === true);
-  // };
+  const checkNumber = (str) => {
+    return str
+      .split(" ")
+      .map((value) => {
+        return !isNaN(value);
+      })
+      .find((el) => el === true);
+  };
 
   const handleInputChange = (prev) => {
     const { name, value } = prev.target;
@@ -34,22 +32,23 @@ const Form = () => {
 
   const handleSubmit = (el) => {
     el.preventDefault();
-    console.log(contactsArr);
     if (nameError !== "" || contact.name === "") {
       setNameInput(true);
       setNameError("Fill in required fields");
+      console.log("first");
     } else if (numberError !== "" || contact.number === "") {
       setNumberInput(true);
       setNumberError("Fill in required fields");
+    } else {
+      setContactsArr({ ...contact });
+      reset();
     }
-    setContactsArr({ ...contact });
-    reset();
   };
 
   const handlerBlurName = () => {
     setNameInput(true);
     setNameFocus(false);
-    if (contact.name !== undefined) {
+    if (checkNumber(contact.name) !== undefined) {
       setNameError("Only letters allowed");
     } else if (!contact.name) {
       setNameError("This field in required");
@@ -66,7 +65,7 @@ const Form = () => {
   const handlerBlurNumber = () => {
     setNumberInput(true);
     setNumberFocus(false);
-    if (contact.number.length !== 13) {
+    if (contact.number.length < 13 || contact.number.length > 13) {
       setNumberError("Should contain 13 characters");
       if (!contact.number) {
         setNumberError("This field in required");
@@ -86,31 +85,47 @@ const Form = () => {
       name: "",
       number: "",
     });
-    setNameError("");
-    setNumberError("");
   };
 
   return (
     <>
       <form onSubmit={handleSubmit} className={s.forma}>
+        {nameError && <label className={s.error}>{nameError}</label>}
+
         <input
-          // className={s.forma__input}
+          className={
+            s.forma__input +
+            " " +
+            (contact.name.length >= 1 && nameFocus === false ? s.valid : "") +
+            " " +
+            (nameError.length > 0 ? s.err : "") +
+            (nameFocus === true ? s.formInput : "")
+          }
           id={nanoid()}
           type="text"
           name="name"
           value={contact.name}
-          placeholder="Ivan Petrov"
+          placeholder="Ivan Shevchenko"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           required
           onChange={handleInputChange}
           onBlur={handlerBlurName}
           onFocus={handlerFocusName}
-          className={s.forma__input}
         />
-        {nameInput && nameError && <p className={"css.error"}>{nameError}</p>}
-
+        {numberInput && numberError && (
+          <label className={s.error}>{numberError}</label>
+        )}
         <input
-          className={s.forma__input}
+          className={
+            s.forma__input +
+            " " +
+            (contact.number.length === 13 && numberFocus === false
+              ? s.valid
+              : "") +
+            " " +
+            (numberError.length > 0 ? s.err : "") +
+            (numberFocus === true ? s.formInput : "")
+          }
           id={nanoid()}
           type="text"
           name="number"
@@ -122,9 +137,7 @@ const Form = () => {
           onBlur={handlerBlurNumber}
           onFocus={handlerFocusNumber}
         />
-        {numberInput && numberError && (
-          <p className={"css.error"}>{numberError}</p>
-        )}
+
         <>
           <ButtonOrder />
         </>

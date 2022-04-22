@@ -1,29 +1,35 @@
-.button__order{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 1.5;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;  
-    width: 288px;
-    height: 56px;
-    margin-top: 32px;
-    color: #ffffff;
-    background: #4BCFA0;
-    border: none;
-    border-radius: 16px;
-    cursor: pointer;
+@import "../../../style/variables.scss";
+
+.button__order {
+  width: 288px;
+  height: 56px;
+  margin-top: 32px;
+
+  border: none;
+  border-radius: 16px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+
+  color: $color-button-white;
+  background: $color-button-green;
+
+  cursor: pointer;
 }
 
-.arrow{
-    opacity: 0;
-    margin-left: 8px;
+.arrow {
+  opacity: 0;
+  margin-left: 8px;
 }
 
 .button__order:hover,
-.button__order:focus{
-    .arrow{
-      opacity: 1;
-    }
+.button__order:focus {
+  .arrow {
+    opacity: 1;
   }
+}

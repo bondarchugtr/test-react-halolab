@@ -1,47 +1,47 @@
-@import '../../style/breakpoints.scss';
+@import "../../style/breakpoints.scss";
+@import "../../style/variables.scss";
+.forma {
+  display: flex;
+  flex-direction: column;
 
-.forma{
-    display: flex;
-    flex-direction: column;
+  &__input {
+    width: 288px;
+    height: 56px;
+    padding: 16px;
 
-        
+    border: $border-input;
 
-    &__input{
-        padding: 16px;
-        width: 288px;
-        height: 56px;
-       
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+}
 
-        border: 1px solid rgba(0, 0, 0, 0.2);
-        box-sizing: border-box;
-        border-radius: 16px;
-    }
-    &__input:first-child{
-        margin-bottom: 16px;
-    }
-
-
-
+.forma__input:not(:last-child) {
+  display: block;
+  margin-bottom: 16px;
 }
 
 .valid {
-    border: 1px solid #4bcfa0;
-    box-sizing: border-box;
-    border-radius: 16px;
-  }
-  
-  .err {
-    border: 1px solid #e43f3f;
-    box-sizing: border-box;
-    border-radius: 16px;
-    // background-image: url(../../img//inputError.svg);
-    background-repeat: no-repeat;
-    background-position: 95% 50%;
-  }
-  
-  .error {
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: -0.02em;
-    color: #e43f3f;
-  }
+  border-radius: 16px;
+  border: $border-input-valid;
+  box-sizing: border-box;
+}
+
+.err {
+  border: $border-input-error;
+  border-radius: 16px;
+  box-sizing: border-box;
+
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+.error {
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: -0.02em;
+
+  color: $label-color-error;
+}

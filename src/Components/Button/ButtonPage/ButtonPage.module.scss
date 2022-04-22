@@ -1,24 +1,28 @@
-.block{
-text-align: center;
-padding-top: 64px;
-padding-bottom: 124px;
+@import "../../../style/variables.scss";
+
+.block {
+  padding-top: 64px;
+  padding-bottom: 124px;
+
+  text-align: center;
 }
 
-.button__page{
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 28px;
-    letter-spacing: -0.02em;
-    width: 235px;
-    height: 60px;
-    background: #50DAA8;
-    color: #FFFFFF;
-    border-radius: 16px;
-    border: none;
-    cursor: pointer;
+.button__page {
+  width: 235px;
+  height: 60px;
 
+  border-radius: 16px;
+  border: none;
 
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
 
+  background: $color-button-green;
+  color: $color-button-white;
+
+  cursor: pointer;
 }
