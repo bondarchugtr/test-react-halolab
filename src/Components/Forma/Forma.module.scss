@@ -24,3 +24,24 @@
 
 }
 
+.valid {
+    border: 1px solid #4bcfa0;
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+  
+  .err {
+    border: 1px solid #e43f3f;
+    box-sizing: border-box;
+    border-radius: 16px;
+    // background-image: url(../../img//inputError.svg);
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+  }
+  
+  .error {
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: -0.02em;
+    color: #e43f3f;
+  }

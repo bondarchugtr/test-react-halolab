@@ -15,7 +15,7 @@ function CardItems({ name, category, price }) {
       <li className={s.item}>
         <p className={s.category}>{category}</p>
 
-        <h3 className={s.name__title}>{name}</h3>
+        <h3 className={s.title}>{name}</h3>
 
         <div className={s.price}>
           <p className={s.price__value}>
