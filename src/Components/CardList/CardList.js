@@ -8,9 +8,15 @@ import s from "./CardList.module.scss";
 import cont from "../../style/base.module.scss";
 function CardList() {
   const [cardArr, setCardArr] = useState([]);
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
     Api().then((response) => setCardArr([...cardArr, ...response]));
   }, []);
+
+  const openModal = () => {
+    setIsActive(!isActive);
+  };
 
   return (
     <div className={cont.container}>
@@ -21,11 +27,10 @@ function CardList() {
             name={card.name}
             category={card.category}
             price={card.price}
-            // onClick={() => imgModalWriting(img.largeImageURL)}
           />
         ))}
       </ul>
-      <ButtonPage />
+      <ButtonPage onClick={openModal} />
     </div>
   );
 }

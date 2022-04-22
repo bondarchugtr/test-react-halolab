@@ -1,20 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Api from "../../Api/ApiService";
+import Modal from "../../Modal/Modal.js";
 import s from "../ButtonPage/ButtonPage.module.scss";
-function ButtonPage() {
-  const [filterPrice, setFilterPrice] = useState(false);
-  console.log(filterPrice);
-  const toggleFilterPrice = () => {
-    setFilterPrice(!filterPrice);
+function ButtonPage({ onClick }) {
+  const [isActive, setIsActive] = useState(false);
+  const [cardArrMim, setCardArrMin] = useState([]);
+  const [minPrice, setMinPrice] = useState([]);
+  useEffect(() => {
+    Api().then((response) => setCardArrMin([...cardArrMim, ...response]));
+  }, []);
+
+  const min = () => {
+    let min = cardArrMim.sort((a, b) => a.price - b.price);
+    setMinPrice(min[0]);
   };
+
+  const openModal = () => {
+    setIsActive(!isActive);
+    min();
+  };
+
   return (
     <div className={s.block}>
-      <button
-        type="button"
-        className={s.button__page}
-        onClick={toggleFilterPrice}
-      >
+      <button type="button" className={s.button__page} onClick={openModal}>
         Buy cheapest
       </button>
+      {isActive && (
+        <Modal
+          name={minPrice.name}
+          category={minPrice.category}
+          price={minPrice.price}
+          onClose={openModal}
+        />
+      )}
     </div>
   );
 }

@@ -1,21 +1,36 @@
+import { useState } from "react";
 import ButtonCard from "../Button/ButtonCard/ButtonCard";
 import s from "./CardItems.module.scss";
+import Modal from "../Modal/Modal";
+
 function CardItems({ name, category, price }) {
+  const [isActive, setIsActive] = useState(false);
+
+  const openModal = () => {
+    setIsActive(!isActive);
+  };
+
   return (
     <>
       <li className={s.item}>
-        <div className={s.category}>
-          <p className={s.category__text}>{category}</p>
-        </div>
-        <div className={s.name}>
-          <p className={s.name__text}>{name}</p>
-        </div>
+        <p className={s.category}>{category}</p>
+
+        <h3 className={s.name__title}>{name}</h3>
+
         <div className={s.price}>
-          <p className={s.price__text}>
+          <p className={s.price__value}>
             <span className={s.price__mark}>$</span>
             {price}
           </p>
-          <ButtonCard />
+          {isActive && (
+            <Modal
+              name={name}
+              category={category}
+              price={price}
+              onClose={openModal}
+            />
+          )}
+          <ButtonCard onClick={openModal} />
         </div>
       </li>
     </>

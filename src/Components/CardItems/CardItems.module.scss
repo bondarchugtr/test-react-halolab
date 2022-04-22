@@ -21,43 +21,31 @@
         flex-basis: calc((100% - 60px) / 2);
        
     }
-         @media screen and (min-width:$desktop-up){
-            width: 352px;
-            height: 256px;
-            padding: 30px;
+    @media screen and (min-width:$desktop-up){
+    width: 352px;
+    height: 256px;
+    padding: 30px;
+    flex-basis: calc((100% - 90px) / 3);
+}
 
-        flex-basis: calc((100% - 90px) / 3);
-        
 }
-}
-   
 
 .category{
+    margin: 0;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-transform: uppercase;
+    margin-top: 0;
     margin-bottom: 8px;
-
-    &__text{
-        margin: 0;
-        font-family: 'Roboto';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 1.5;
-        color: #000000;
-        opacity: 0.5;
-    }
+    color: #000000;
+    opacity: 0.5;
 }
 
-.name{
-   
-    margin-bottom: 10px;
+.name__title{
 
-    @media screen and (min-width:$desktop-up){
-        margin-bottom: 40px;
-    }
-        
-    
-
-    &__text{
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
@@ -66,9 +54,13 @@
         color: #000000;
         letter-spacing: -0.02em;
         margin: 0;
-    
+        margin-bottom: 10px;
+
+    @media screen and (min-width:$desktop-up){
+        margin-bottom: 40px;
     }
 }
+
 
 
 .price{
@@ -76,7 +68,7 @@
     justify-content:space-between;
     align-items: center;
 
-    &__text{
+    &__value{
         display: flex;
         font-family: 'Roboto';
         font-style: normal;
@@ -84,10 +76,8 @@
         font-size: 60px;
         line-height: 1.2;
         margin: 0;
-
         color: #000000;
         letter-spacing: -0.02em;
-
     }
 
     &__mark{
@@ -100,6 +90,5 @@
         color: #000000;
         margin-right: 4px;
         margin-top: 13px;
-
     }
 }
